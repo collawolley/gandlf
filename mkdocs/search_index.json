@@ -1,0 +1,49 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Generative Adversarial Network Deep Learning Framework\n\n\n\n\nHe that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)\n\n\n\n\nThis is a framework built on top of \nKeras\n for training \nGenerative Adversarial Networks\n.\n\n\nInstallation\n\n\nUsing Pip:\n\n\npip install git+https://github.com/codekansas/gandlf\npip install h5py  # To save and load Keras models\n\n\n\nInstalling from source:\n\n\ngit clone https://github.com/codekansas/gandlf\ncd gandlf\npip install -r requirements.txt\npython setup.py install\n\n\n\nGuiding Principles\n\n\nIn no particular order:\n\n\n\n\nKeras-esque\n: The APIs should feel familiar for Keras users, with some minor changes.\n\n\nPowerful\n: Models should support a wide variety of GAN architectures.\n\n\nExtensible\n: Models should be easy to modify for different experiments.\n\n\n\n\nIssues Etiquette\n\n\nIf you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. There a number of resources available for discussion; here is a list, again in no particular order:\n\n\n\n\n/r/MachineLearning\n\n\nAdversarial Training Facebook Group", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#generative-adversarial-network-deep-learning-framework", 
+            "text": "He that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)   This is a framework built on top of  Keras  for training  Generative Adversarial Networks .", 
+            "title": "Generative Adversarial Network Deep Learning Framework"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "Using Pip:  pip install git+https://github.com/codekansas/gandlf\npip install h5py  # To save and load Keras models  Installing from source:  git clone https://github.com/codekansas/gandlf\ncd gandlf\npip install -r requirements.txt\npython setup.py install", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#guiding-principles", 
+            "text": "In no particular order:   Keras-esque : The APIs should feel familiar for Keras users, with some minor changes.  Powerful : Models should support a wide variety of GAN architectures.  Extensible : Models should be easy to modify for different experiments.", 
+            "title": "Guiding Principles"
+        }, 
+        {
+            "location": "/#issues-etiquette", 
+            "text": "If you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. There a number of resources available for discussion; here is a list, again in no particular order:   /r/MachineLearning  Adversarial Training Facebook Group", 
+            "title": "Issues Etiquette"
+        }, 
+        {
+            "location": "/examples/mnist/", 
+            "text": "Vanilla GAN on MNIST\n\n\nTODO: Write this.\n\n\nDeep Convolutional GAN\n\n\nTODO: Write this.\n\n\nAuxiliary Classifier GAN\n\n\nTODO: Write this.", 
+            "title": "MNIST"
+        }, 
+        {
+            "location": "/examples/mnist/#vanilla-gan-on-mnist", 
+            "text": "TODO: Write this.", 
+            "title": "Vanilla GAN on MNIST"
+        }, 
+        {
+            "location": "/examples/mnist/#deep-convolutional-gan", 
+            "text": "TODO: Write this.", 
+            "title": "Deep Convolutional GAN"
+        }, 
+        {
+            "location": "/examples/mnist/#auxiliary-classifier-gan", 
+            "text": "TODO: Write this.", 
+            "title": "Auxiliary Classifier GAN"
+        }
+    ]
+}
