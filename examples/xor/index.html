@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>MNIST - gandlf</title>
+  <title>XOR - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "MNIST";
-    var mkdocs_page_input_path = "examples/mnist.md";
-    var mkdocs_page_url = "/examples/mnist/";
+    var mkdocs_page_name = "XOR";
+    var mkdocs_page_input_path = "examples/xor.md";
+    var mkdocs_page_url = "/examples/xor/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -60,18 +60,9 @@
         
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">MNIST</a>
+        <a class="current" href="./">XOR</a>
         
             <ul>
-            
-                <li class="toctree-l3"><a href="#vanilla-gan-on-mnist">Vanilla GAN on MNIST</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#deep-convolutional-gan">Deep Convolutional GAN</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#auxiliary-classifier-gan">Auxiliary Classifier GAN</a></li>
-                
             
             </ul>
         
@@ -107,7 +98,7 @@
         
       
     
-    <li>MNIST</li>
+    <li>XOR</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -117,12 +108,10 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="vanilla-gan-on-mnist">Vanilla GAN on MNIST</h2>
-<p>TODO: Write this.</p>
-<h2 id="deep-convolutional-gan">Deep Convolutional GAN</h2>
-<p>TODO: Write this.</p>
-<h2 id="auxiliary-classifier-gan">Auxiliary Classifier GAN</h2>
-<p>TODO: Write this.</p>
+                <p>This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near <code>(-1, -1)</code>, <code>(1, -1)</code>, <code>(-1, 1)</code> and <code>(1, 1)</code>. This is illustrated in the figure below, which each of the distributions labeled.</p>
+<p><img alt="XOR Data" src="../../resources/xor_data.png" /></p>
+<p>The model can either be trained in unsupervised mode (the default) or supervised mode (using the <code>--supervised</code> command line flag). In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.</p>
+<p>When trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.</p>
               
             </div>
           </div>

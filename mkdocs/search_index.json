@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Generative Adversarial Network Deep Learning Framework\n\n\n\n\nHe that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)\n\n\n\n\nThis is a framework built on top of \nKeras\n for training \nGenerative Adversarial Networks\n.\n\n\nInstallation\n\n\nUsing Pip:\n\n\npip install git+https://github.com/codekansas/gandlf\npip install h5py  # To save and load Keras models\n\n\n\nInstalling from source:\n\n\ngit clone https://github.com/codekansas/gandlf\ncd gandlf\npip install -r requirements.txt\npython setup.py install\n\n\n\nGuiding Principles\n\n\nIn no particular order:\n\n\n\n\nKeras-esque\n: The APIs should feel familiar for Keras users, with some minor changes.\n\n\nPowerful\n: Models should support a wide variety of GAN architectures.\n\n\nExtensible\n: Models should be easy to modify for different experiments.\n\n\n\n\nIssues Etiquette\n\n\nIf you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. There a number of resources available for discussion; here is a list, again in no particular order:\n\n\n\n\n/r/MachineLearning\n\n\nAdversarial Training Facebook Group", 
+            "text": "Generative Adversarial Network Deep Learning Framework\n\n\n\n\nHe that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)\n\n\n\n\nThis is a framework built on top of \nKeras\n for training \nGenerative Adversarial Networks\n.\n\n\nBecause it's built on top of Keras, it has the benefits of being \nmodular\n, \nminimal\n and \nextensible\n, running on both CPU and GPU using either Tensorflow or Theano.\n\n\nInstallation\n\n\nUsing Pip:\n\n\npip install git+https://github.com/codekansas/gandlf\npip install h5py  # To save and load Keras models\n\n\n\n\nInstalling from source:\n\n\ngit clone https://github.com/codekansas/gandlf\ncd gandlf\npip install -r requirements.txt\npython setup.py install\n\n\n\n\nQuick Start\n\n\nBelow demonstrates how a Gandlf model works.\n\n\nimport keras\nimport gandlf\n\ndef build_generator():\n    latent_vec = keras.layers.Input(shape=..., name='latent_vec')\n    output_layer = keras.layers.Dense(...)(latent_vec)\n    return keras.models.Model(input=[latent_vec], output=[output_layer])\n\ndef build_discriminator():\n    data_input = keras.layers.Input(shape=..., name='data_input')\n    output_layer = keras.layers.Dense(...)(data_input)\n    return keras.models.Model(input=[data_input], output=[output_layer])\n\nmodel = gandlf.Model(generator=build_generator(),\n                     discriminator=build_discriminator())\n\nmodel.compile(optimizer='adam', loss='binary_crossentropy')\n\n# Latent vector is fed data from a random normal distribution.\n# \ninput_data\n represents the real data.\n# 'zeros' and 'ones' represent 'fake' and 'real', respectively.\n# In this case, the discriminator learns 'real data' -\n 1\n# and 'generated data' -\n 0, while the generator learns\n# 'generated data' -\n 1.\nmodel.fit(['normal', \ninput_data\n], ['zeros', 'ones'])\n\n# The model provides a function for predicting the discriminator's\n# output on some input data, which is useful for auxiliary classification.\nmodel_predictions = model.predict([\ninput_data\n])\n\n# The model also provides a function for sampling from the generator.\ngenerated_data = model.sample(['normal'], num_samples=10)\n\n# Under the hood, other functions work like their Keras counterparts.\nmodel.save('/save/path')\n\n\n\n\nGuiding Principles\n\n\nIn no particular order:\n\n\n\n\nKeras-esque\n: The APIs should feel familiar for Keras users, with some minor changes.\n\n\nPowerful\n: Models should support a wide variety of GAN architectures.\n\n\nExtensible\n: Models should be easy to modify for different experiments.\n\n\n\n\nWhat is a GAN?\n\n\nGAN stands for Generative Adversarial Network. The graphic below provides a scientific illustration of what a GAN does.\n\n\n\n\nThe GAN consists of two neural networks: a generator and a discriminator. The discriminator's job is to take in some real data and some fake data and decide which one is which. The generator's job is to generate good enough fake data that the discriminator can't tell the difference.\n\n\nGANs were introduced by Ian Goodfellow in an \neponymous paper\n. Since then, many researchers have come up with different architectures and tricks to improve training. Gandlf aims to make these advancements more accessible and provide a platform for experimenting with different tweaks. It is built on top of the popular \nKeras\n library, and therefore supports training in both Theano and Tensorflow.\n\n\nIssues Etiquette\n\n\nMore examples would be awesome! If you use this for something, create a stand-alone script that can be run and I'll put it in the \nexamples\n directory. Just create a pull request for it.\n\n\nIf you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. Even better, look around the code to see if you can spot what's going wrong.\n\n\nLastly, there a number of resources available for more general discussion; here is a list, again in no particular order:\n\n\n\n\n/r/MachineLearning\n\n\nAdversarial Training Facebook Group", 
             "title": "Home"
         }, 
         {
             "location": "/#generative-adversarial-network-deep-learning-framework", 
-            "text": "He that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)   This is a framework built on top of  Keras  for training  Generative Adversarial Networks .", 
+            "text": "He that breaks a thing to find out what it is has left the path of wisdom.\n(Tim Peters, Council of Elrond Style Guide)   This is a framework built on top of  Keras  for training  Generative Adversarial Networks .  Because it's built on top of Keras, it has the benefits of being  modular ,  minimal  and  extensible , running on both CPU and GPU using either Tensorflow or Theano.", 
             "title": "Generative Adversarial Network Deep Learning Framework"
         }, 
         {
@@ -16,34 +16,29 @@
             "title": "Installation"
         }, 
         {
+            "location": "/#quick-start", 
+            "text": "Below demonstrates how a Gandlf model works.  import keras\nimport gandlf\n\ndef build_generator():\n    latent_vec = keras.layers.Input(shape=..., name='latent_vec')\n    output_layer = keras.layers.Dense(...)(latent_vec)\n    return keras.models.Model(input=[latent_vec], output=[output_layer])\n\ndef build_discriminator():\n    data_input = keras.layers.Input(shape=..., name='data_input')\n    output_layer = keras.layers.Dense(...)(data_input)\n    return keras.models.Model(input=[data_input], output=[output_layer])\n\nmodel = gandlf.Model(generator=build_generator(),\n                     discriminator=build_discriminator())\n\nmodel.compile(optimizer='adam', loss='binary_crossentropy')\n\n# Latent vector is fed data from a random normal distribution.\n#  input_data  represents the real data.\n# 'zeros' and 'ones' represent 'fake' and 'real', respectively.\n# In this case, the discriminator learns 'real data' -  1\n# and 'generated data' -  0, while the generator learns\n# 'generated data' -  1.\nmodel.fit(['normal',  input_data ], ['zeros', 'ones'])\n\n# The model provides a function for predicting the discriminator's\n# output on some input data, which is useful for auxiliary classification.\nmodel_predictions = model.predict([ input_data ])\n\n# The model also provides a function for sampling from the generator.\ngenerated_data = model.sample(['normal'], num_samples=10)\n\n# Under the hood, other functions work like their Keras counterparts.\nmodel.save('/save/path')", 
+            "title": "Quick Start"
+        }, 
+        {
             "location": "/#guiding-principles", 
             "text": "In no particular order:   Keras-esque : The APIs should feel familiar for Keras users, with some minor changes.  Powerful : Models should support a wide variety of GAN architectures.  Extensible : Models should be easy to modify for different experiments.", 
             "title": "Guiding Principles"
         }, 
         {
+            "location": "/#what-is-a-gan", 
+            "text": "GAN stands for Generative Adversarial Network. The graphic below provides a scientific illustration of what a GAN does.   The GAN consists of two neural networks: a generator and a discriminator. The discriminator's job is to take in some real data and some fake data and decide which one is which. The generator's job is to generate good enough fake data that the discriminator can't tell the difference.  GANs were introduced by Ian Goodfellow in an  eponymous paper . Since then, many researchers have come up with different architectures and tricks to improve training. Gandlf aims to make these advancements more accessible and provide a platform for experimenting with different tweaks. It is built on top of the popular  Keras  library, and therefore supports training in both Theano and Tensorflow.", 
+            "title": "What is a GAN?"
+        }, 
+        {
             "location": "/#issues-etiquette", 
-            "text": "If you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. There a number of resources available for discussion; here is a list, again in no particular order:   /r/MachineLearning  Adversarial Training Facebook Group", 
+            "text": "More examples would be awesome! If you use this for something, create a stand-alone script that can be run and I'll put it in the  examples  directory. Just create a pull request for it.  If you encounter an error, I would really like to hear about it! But please raise an issue before creating a pull request, to discuss the error. Even better, look around the code to see if you can spot what's going wrong.  Lastly, there a number of resources available for more general discussion; here is a list, again in no particular order:   /r/MachineLearning  Adversarial Training Facebook Group", 
             "title": "Issues Etiquette"
         }, 
         {
-            "location": "/examples/mnist/", 
-            "text": "Vanilla GAN on MNIST\n\n\nTODO: Write this.\n\n\nDeep Convolutional GAN\n\n\nTODO: Write this.\n\n\nAuxiliary Classifier GAN\n\n\nTODO: Write this.", 
-            "title": "MNIST"
-        }, 
-        {
-            "location": "/examples/mnist/#vanilla-gan-on-mnist", 
-            "text": "TODO: Write this.", 
-            "title": "Vanilla GAN on MNIST"
-        }, 
-        {
-            "location": "/examples/mnist/#deep-convolutional-gan", 
-            "text": "TODO: Write this.", 
-            "title": "Deep Convolutional GAN"
-        }, 
-        {
-            "location": "/examples/mnist/#auxiliary-classifier-gan", 
-            "text": "TODO: Write this.", 
-            "title": "Auxiliary Classifier GAN"
+            "location": "/examples/xor/", 
+            "text": "This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near \n(-1, -1)\n, \n(1, -1)\n, \n(-1, 1)\n and \n(1, 1)\n. This is illustrated in the figure below, which each of the distributions labeled.\n\n\n\n\nThe model can either be trained in unsupervised mode (the default) or supervised mode (using the \n--supervised\n command line flag). In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.\n\n\nWhen trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.", 
+            "title": "XOR"
         }
     ]
 }
