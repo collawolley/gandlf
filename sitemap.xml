@@ -4,7 +4,15 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-01-02</lastmod>
+     <lastmod>2017-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/background/</loc>
+     <lastmod>2017-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +21,7 @@
         
     <url>
      <loc>/examples/xor/</loc>
-     <lastmod>2017-01-02</lastmod>
+     <lastmod>2017-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

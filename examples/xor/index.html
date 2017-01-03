@@ -54,6 +54,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../background/">Background</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>Examples</span></li>
 
@@ -113,7 +120,7 @@
               
                 <p>This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near <code>(-1, -1)</code>, <code>(1, -1)</code>, <code>(-1, 1)</code> and <code>(1, 1)</code>. This is illustrated in the figure below, which each of the distributions labeled.</p>
 <p><img alt="XOR Data" src="../../resources/xor_data.png" /></p>
-<p>The model can either be trained in unsupervised mode (the default) or supervised mode (using the <code>--supervised</code> command line flag). In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.</p>
+<p>The model can either be trained in unsupervised mode or supervised mode. In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.</p>
 <p>When trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.</p>
               
             </div>
@@ -123,7 +130,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../background/" class="btn btn-neutral" title="Background"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -151,7 +158,7 @@
           <a href="https://github.com/codekansas/gandlf" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../background/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
