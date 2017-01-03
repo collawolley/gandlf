@@ -193,7 +193,7 @@ model = gandlf.Model(generator=..., discriminator=discriminator)
 
 <p>One problem is that the outputs have to be specified for each mode. The diagram below illustrates the three training modes:</p>
 <p><img alt="Training Modes" src="../resources/training_modes.png" /></p>
-<p>The prefixes above are used in Gandlf naming to specify the outputs. The example below illustrates how to specify the desired outputs for the <code>fit</code> function on the model above:</p>
+<p>The suffixes above are used in Gandlf naming to specify the outputs. The example below illustrates how to specify the desired outputs for the <code>fit</code> function on the model above:</p>
 <pre><code class="python">model.fit(inputs=[...], outputs={
     # Tells the generator to make the discriminator's is_it_real output
     # go towards 1 for generated samples.
