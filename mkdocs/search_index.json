@@ -51,6 +51,41 @@
             "title": "Resources"
         }, 
         {
+            "location": "/layers/core/", 
+            "text": "Core layers, tricks which can help easily improve GANs in many cases.\n\n\nPermanentDropout\n\n\nAn alternative to Keras Dropout which stays active during both training and testing.", 
+            "title": "Core"
+        }, 
+        {
+            "location": "/layers/core/#permanentdropout", 
+            "text": "An alternative to Keras Dropout which stays active during both training and testing.", 
+            "title": "PermanentDropout"
+        }, 
+        {
+            "location": "/layers/attention/", 
+            "text": "Attention mechanisms, which can help integrate more information into training GANs.\n\n\nRecurrentAttention1D\n\n\nAttention mechanism for Recurrent Keras layers (VanillaRNN, GRU and LSTM) which pays attention to a tensor with shape \n(batch_size, num_features)\n.\n\n\nRecurrentAttention2D\n\n\nAttention mechanism for Recurrent Keras layers (VanillaRNN, GRU and LSTM) which pays attention to a tensor with shape \n(batch_size, num_timesteps, num_features)\n.", 
+            "title": "Attention"
+        }, 
+        {
+            "location": "/layers/attention/#recurrentattention1d", 
+            "text": "Attention mechanism for Recurrent Keras layers (VanillaRNN, GRU and LSTM) which pays attention to a tensor with shape  (batch_size, num_features) .", 
+            "title": "RecurrentAttention1D"
+        }, 
+        {
+            "location": "/layers/attention/#recurrentattention2d", 
+            "text": "Attention mechanism for Recurrent Keras layers (VanillaRNN, GRU and LSTM) which pays attention to a tensor with shape  (batch_size, num_timesteps, num_features) .", 
+            "title": "RecurrentAttention2D"
+        }, 
+        {
+            "location": "/layers/wrappers/", 
+            "text": "Residual\n\n\nApplies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.", 
+            "title": "Wrappers"
+        }, 
+        {
+            "location": "/layers/wrappers/#residual", 
+            "text": "Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.", 
+            "title": "Residual"
+        }, 
+        {
             "location": "/examples/xor/", 
             "text": "This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near \n(-1, -1)\n, \n(1, -1)\n, \n(-1, 1)\n and \n(1, 1)\n. This is illustrated in the figure below, which each of the distributions labeled.\n\n\n\n\nThe model can either be trained in unsupervised mode or supervised mode. In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.\n\n\nWhen trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.", 
             "title": "XOR"

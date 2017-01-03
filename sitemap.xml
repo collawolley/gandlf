@@ -20,6 +20,28 @@
     
         
     <url>
+     <loc>/layers/core/</loc>
+     <lastmod>2017-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/attention/</loc>
+     <lastmod>2017-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/wrappers/</loc>
+     <lastmod>2017-01-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>/examples/xor/</loc>
      <lastmod>2017-01-03</lastmod>
      <changefreq>daily</changefreq>
