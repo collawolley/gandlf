@@ -180,7 +180,7 @@
 <h2 id="training">Training</h2>
 <ul>
 <li>Modified loss function: Instead of training the Generator to minimize <code>log(1-D)</code>, train it to minimize <code>-log(D)</code>. This is implemented as <code>gandlf.losses.negative_binary_crossentropy</code></li>
-<li>For the latent vector(s), sample from a normal distribution instead of a uniform distribution</li>
+<li>For the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as <code>model.fit(inputs=['normal', ...)</code></li>
 <li>Reinforcement learning stability tricks: Not yet implemented</li>
 <li>Use the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as <code>model = gandlf.Model(optimizer=['adam', 'sgd'], ...)</code></li>
 <li>Don't let the discriminator saturate!</li>
