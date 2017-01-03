@@ -164,8 +164,17 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="residual">Residual</h2>
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/gandlf/layers/wrappers.py">wrappers.py</a></p>
+<h2 id="residual">Residual</h2>
+<pre><code class="python">gandlf.layers.Residual(layer, merge_mode='sum')
+</code></pre>
+
 <p>Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.</p>
+<p>The provided <code>layer</code> has the have the same input and output dimensions. Given an input <code>x</code>, the output is:</p>
+<pre><code class="python">output = merge_mode(x, layer(x))
+</code></pre>
+
+<p><code>merge_mode</code> can be a string like for <a href="https://keras.io/layers/core/#merge">Merge</a> or a <code>Merge</code> layer itself.</p>
               
             </div>
           </div>

@@ -92,37 +92,37 @@
         }, 
         {
             "location": "/layers/core/", 
-            "text": "Core layers, tricks which can help easily improve GANs in many cases.\n\n\nPermanentDropout\n\n\nAn alternative to Keras Dropout which stays active during both training and testing.", 
+            "text": "core.py\n\n\nCore layers, tricks which can help easily improve GANs in many cases.\n\n\nPermanentDropout\n\n\ngandlf.layers.PermanentDropout()\n\n\n\n\nAn alternative to Keras \nDropout\n which stays active during both training and testing.", 
             "title": "Core"
         }, 
         {
             "location": "/layers/core/#permanentdropout", 
-            "text": "An alternative to Keras Dropout which stays active during both training and testing.", 
+            "text": "gandlf.layers.PermanentDropout()  An alternative to Keras  Dropout  which stays active during both training and testing.", 
             "title": "PermanentDropout"
         }, 
         {
             "location": "/layers/attention/", 
-            "text": "attention.py\n\n\nRecurrentAttention1D\n\n\ngandlf.layers.RecurrentAttention1D(layer, attention, attn_activation='tanh', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer, **kwargs)\n\n\n\n\nMakes the wrapped Keras RNN \nlayer\n pay attention to the \nattention\n tensor, which has shape \n(batch_size, num_attn_features)\n.\n\n\nThe updated hidden state is computed after each timestep as:\n\n\ntrainable_params = [U_m, b_m, U_a, U_s, b_s]\n\n# Given hidden output \nh\n at each timestep:\nm = attn_activation(dot(h, U_m) + dot(attention, U_a) + b_m)\ns = attn_gate(dot(m, U_s) + b_s)\nh_new = s * h  # Element-wise weighting.\n\n\n\n\nRecurrentAttention2D\n\n\ngandlf.layers.RecurrentAttention2D(layer, attention, time_dist_activation='softmax', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer=None, **kwargs)\n\n\n\n\nMakes the wrapped Keras RNN \nlayer\n pay attention to the \nattention\n tensor, which has shape \n(batch_size, num_attn_timesteps, num_attn_features)\n.\n\n\nThe updated hidden state is computed after each timestep as:\n\n\ntrainable_params = [U_t, b_t, U_a, b_a]\n\n# Given hidden output \nh\n at each timestep:\nt = time_dist_activation(dot(h, U_t), b_t)\nw = sum(t * attention)  # Weights each timestep by `t`.\ns = attn_gate_func(dot(w, U_a) + b_a)\nh_new = s * h  # Element-wise weighting.", 
+            "text": "attention.py\n\n\nRecurrentAttention1D\n\n\ngandlf.layers.RecurrentAttention1D(layer, attention, attn_activation='tanh', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer)\n\n\n\n\nMakes the wrapped Keras RNN \nlayer\n pay attention to the \nattention\n tensor, which has shape \n(batch_size, num_attn_features)\n.\n\n\nThe updated hidden state is computed after each timestep as:\n\n\ntrainable_params = [U_m, b_m, U_a, U_s, b_s]\n\n# Given hidden output \nh\n at each timestep:\nm = attn_activation(dot(h, U_m) + dot(attention, U_a) + b_m)\ns = attn_gate(dot(m, U_s) + b_s)\nh_new = s * h  # Element-wise weighting.\n\n\n\n\nRecurrentAttention2D\n\n\ngandlf.layers.RecurrentAttention2D(layer, attention, time_dist_activation='softmax', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer=None)\n\n\n\n\nMakes the wrapped Keras RNN \nlayer\n pay attention to the \nattention\n tensor, which has shape \n(batch_size, num_attn_timesteps, num_attn_features)\n.\n\n\nThe updated hidden state is computed after each timestep as:\n\n\ntrainable_params = [U_t, b_t, U_a, b_a]\n\n# Given hidden output \nh\n at each timestep:\nt = time_dist_activation(dot(h, U_t), b_t)\nw = sum(t * attention)  # Weights each timestep by `t`.\ns = attn_gate_func(dot(w, U_a) + b_a)\nh_new = s * h  # Element-wise weighting.", 
             "title": "Attention"
         }, 
         {
             "location": "/layers/attention/#recurrentattention1d", 
-            "text": "gandlf.layers.RecurrentAttention1D(layer, attention, attn_activation='tanh', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer, **kwargs)  Makes the wrapped Keras RNN  layer  pay attention to the  attention  tensor, which has shape  (batch_size, num_attn_features) .  The updated hidden state is computed after each timestep as:  trainable_params = [U_m, b_m, U_a, U_s, b_s]\n\n# Given hidden output  h  at each timestep:\nm = attn_activation(dot(h, U_m) + dot(attention, U_a) + b_m)\ns = attn_gate(dot(m, U_s) + b_s)\nh_new = s * h  # Element-wise weighting.", 
+            "text": "gandlf.layers.RecurrentAttention1D(layer, attention, attn_activation='tanh', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer)  Makes the wrapped Keras RNN  layer  pay attention to the  attention  tensor, which has shape  (batch_size, num_attn_features) .  The updated hidden state is computed after each timestep as:  trainable_params = [U_m, b_m, U_a, U_s, b_s]\n\n# Given hidden output  h  at each timestep:\nm = attn_activation(dot(h, U_m) + dot(attention, U_a) + b_m)\ns = attn_gate(dot(m, U_s) + b_s)\nh_new = s * h  # Element-wise weighting.", 
             "title": "RecurrentAttention1D"
         }, 
         {
             "location": "/layers/attention/#recurrentattention2d", 
-            "text": "gandlf.layers.RecurrentAttention2D(layer, attention, time_dist_activation='softmax', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer=None, **kwargs)  Makes the wrapped Keras RNN  layer  pay attention to the  attention  tensor, which has shape  (batch_size, num_attn_timesteps, num_attn_features) .  The updated hidden state is computed after each timestep as:  trainable_params = [U_t, b_t, U_a, b_a]\n\n# Given hidden output  h  at each timestep:\nt = time_dist_activation(dot(h, U_t), b_t)\nw = sum(t * attention)  # Weights each timestep by `t`.\ns = attn_gate_func(dot(w, U_a) + b_a)\nh_new = s * h  # Element-wise weighting.", 
+            "text": "gandlf.layers.RecurrentAttention2D(layer, attention, time_dist_activation='softmax', attn_gate_func='sigmoid', W_regularizer=None, b_regularizer=None)  Makes the wrapped Keras RNN  layer  pay attention to the  attention  tensor, which has shape  (batch_size, num_attn_timesteps, num_attn_features) .  The updated hidden state is computed after each timestep as:  trainable_params = [U_t, b_t, U_a, b_a]\n\n# Given hidden output  h  at each timestep:\nt = time_dist_activation(dot(h, U_t), b_t)\nw = sum(t * attention)  # Weights each timestep by `t`.\ns = attn_gate_func(dot(w, U_a) + b_a)\nh_new = s * h  # Element-wise weighting.", 
             "title": "RecurrentAttention2D"
         }, 
         {
             "location": "/layers/wrappers/", 
-            "text": "Residual\n\n\nApplies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.", 
+            "text": "wrappers.py\n\n\nResidual\n\n\ngandlf.layers.Residual(layer, merge_mode='sum')\n\n\n\n\nApplies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.\n\n\nThe provided \nlayer\n has the have the same input and output dimensions. Given an input \nx\n, the output is:\n\n\noutput = merge_mode(x, layer(x))\n\n\n\n\nmerge_mode\n can be a string like for \nMerge\n or a \nMerge\n layer itself.", 
             "title": "Wrappers"
         }, 
         {
             "location": "/layers/wrappers/#residual", 
-            "text": "Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.", 
+            "text": "gandlf.layers.Residual(layer, merge_mode='sum')  Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.  The provided  layer  has the have the same input and output dimensions. Given an input  x , the output is:  output = merge_mode(x, layer(x))  merge_mode  can be a string like for  Merge  or a  Merge  layer itself.", 
             "title": "Residual"
         }, 
         {
