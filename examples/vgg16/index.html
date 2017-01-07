@@ -7,20 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Benjamin Bolte">
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>gandlf</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>VGG16 - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script>var base_url = '.';</script>
-  <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-
+  <script>
+    // Current page data
+    var mkdocs_page_name = "VGG16";
+    var mkdocs_page_input_path = "examples/vgg16.md";
+    var mkdocs_page_url = "/examples/vgg16/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -31,9 +35,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> gandlf</a>
+        <a href="../.." class="icon icon-home"> gandlf</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -44,28 +48,28 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href=".">Home</a>
+        <a class="" href="../..">Home</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="background/">Background</a>
+        <a class="" href="../../background/">Background</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="model/">Model</a>
+        <a class="" href="../../model/">Model</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="tricks/">Tricks</a>
+        <a class="" href="../../tricks/">Tricks</a>
         
     </li>
 <li>
@@ -77,21 +81,21 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="layers/core/">Core</a>
+        <a class="" href="../../layers/core/">Core</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="layers/attention/">Attention</a>
+        <a class="" href="../../layers/attention/">Attention</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="layers/wrappers/">Wrappers</a>
+        <a class="" href="../../layers/wrappers/">Wrappers</a>
         
     </li>
 
@@ -101,7 +105,7 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="callbacks/">Callbacks</a>
+        <a class="" href="../../callbacks/">Callbacks</a>
         
     </li>
 <li>
@@ -113,21 +117,25 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="examples/xor/">XOR</a>
+        <a class="" href="../xor/">XOR</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="examples/mnist_gan/">MNIST GAN</a>
+        <a class="" href="../mnist_gan/">MNIST GAN</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="examples/vgg16/">VGG16</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">VGG16</a>
+        
+            <ul>
+            
+            </ul>
         
     </li>
 
@@ -145,7 +153,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">gandlf</a>
+        <a href="../..">gandlf</a>
       </nav>
 
       
@@ -153,10 +161,19 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
+      
+        
+          <li>Examples &raquo;</li>
+        
+      
     
+    <li>VGG16</li>
     <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/vgg16.md"
+          class="icon icon-github"> Edit on GitHub</a>
       
     </li>
   </ul>
@@ -165,22 +182,20 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="search">Search Results</h1>
-
-  <form id="content_search" action="search.html">
-    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-    <input name="q" id="mkdocs-search-query" type="text" class="search_input search-query ui-autocomplete-input" placeholder="Search the Docs" autocomplete="off" autofocus>
-  </form>
-
-  <div id="mkdocs-search-results" class="search-results">
-    Searching...
-  </div>
-
-
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/vgg16.py">vgg16.py</a></p>
+<p>This example illustrates how a pre-trained model can be used to generate images. The discriminator is the VGG16 model which is available with Keras, and the discriminator weights are frozen. The generator learns to generate samples of a desired class. This isn't a pure GAN, because the discriminator model doesn't learn to discriminate adversarial examples, but the generator does learn to map a random normal distribution to generate image classes in the ImageNet dataset.</p>
+<p>TODO: Add images sampled from this model (it is really big and takes a while to train, so they will be added whenever I have access to a good enough computer).</p>
+              
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../mnist_gan/" class="btn btn-neutral" title="MNIST GAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -206,10 +221,12 @@
           <a href="https://github.com/codekansas/gandlf" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../mnist_gan/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
       
     </span>
 </div>
-    <script src="./js/theme.js"></script>
+    <script src="../../js/theme.js"></script>
 
 </body>
 </html>
