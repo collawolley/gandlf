@@ -67,7 +67,7 @@
         }, 
         {
             "location": "/tricks/", 
-            "text": "General\n\n\nA list of useful GAN hacks is available \nhere\n. Most of the tricks listed below are taken from that list, with references for how to implement them in Gandlf.\n\n\nData\n\n\n\n\nNormalize the data to \n[-1, 1]\n\n\nThis data can then be approximated using the \ntanh\n function\n\n\n\n\n\n\n\n\nModel\n\n\n\n\nUse \nkeras.layers.LeakyReLU\n instead of the ReLU activation function\n\n\nIf available, use labeled data (Auxiliary Classifier GAN or Conditional GAN)\n\n\nUse dropout in both the train and test phase: This is implemented as \ngandlf.layers.PermanentDropout\n\n\n\n\nTraining\n\n\n\n\nModified loss function: Instead of training the Generator to minimize \nlog(1-D)\n, train it to minimize \n-log(D)\n. This is implemented as \ngandlf.losses.negative_binary_crossentropy\n\n\nFor the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as \nmodel.fit(inputs=['normal', ...)\n\n\nReinforcement learning stability tricks: Not yet implemented\n\n\nUse the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as \nmodel = gandlf.Model(optimizer=['adam', 'sgd'], ...)\n\n\nDon't let the discriminator saturate!", 
+            "text": "General\n\n\nA list of useful GAN hacks is available \nhere\n. Most of the tricks listed below are taken from that list, with references for how to implement them in Gandlf.\n\n\nData\n\n\n\n\nNormalize the data to \n[-1, 1]\n\n\nThis data can then be approximated using the \ntanh\n function\n\n\n\n\n\n\nUse Batch Normalization (implemented in Keras as \nBatchNormalization\n)\n\n\n\n\nModel\n\n\n\n\nUse \nkeras.layers.LeakyReLU\n instead of the ReLU activation function\n\n\nIf available, use labeled data (Auxiliary Classifier GAN or Conditional GAN)\n\n\nUse dropout in both the train and test phase: This is implemented as \ngandlf.layers.PermanentDropout\n\n\n\n\nTraining\n\n\n\n\nModified loss function: Instead of training the Generator to minimize \nlog(1-D)\n, train it to minimize \n-log(D)\n. This is implemented as \ngandlf.losses.negative_binary_crossentropy\n\n\nFor the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as \nmodel.fit(inputs=['normal', ...)\n\n\nReinforcement learning stability tricks: Not yet implemented\n\n\nUse the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as \nmodel = gandlf.Model(optimizer=['adam', 'sgd'], ...)\n\n\nDon't let the discriminator saturate!\n\n\nAdapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as \ngandlf.callbacks.AdaptiveLearningRate", 
             "title": "Tricks"
         }, 
         {
@@ -77,7 +77,7 @@
         }, 
         {
             "location": "/tricks/#data", 
-            "text": "Normalize the data to  [-1, 1]  This data can then be approximated using the  tanh  function", 
+            "text": "Normalize the data to  [-1, 1]  This data can then be approximated using the  tanh  function    Use Batch Normalization (implemented in Keras as  BatchNormalization )", 
             "title": "Data"
         }, 
         {
@@ -87,7 +87,7 @@
         }, 
         {
             "location": "/tricks/#training", 
-            "text": "Modified loss function: Instead of training the Generator to minimize  log(1-D) , train it to minimize  -log(D) . This is implemented as  gandlf.losses.negative_binary_crossentropy  For the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as  model.fit(inputs=['normal', ...)  Reinforcement learning stability tricks: Not yet implemented  Use the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as  model = gandlf.Model(optimizer=['adam', 'sgd'], ...)  Don't let the discriminator saturate!", 
+            "text": "Modified loss function: Instead of training the Generator to minimize  log(1-D) , train it to minimize  -log(D) . This is implemented as  gandlf.losses.negative_binary_crossentropy  For the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as  model.fit(inputs=['normal', ...)  Reinforcement learning stability tricks: Not yet implemented  Use the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as  model = gandlf.Model(optimizer=['adam', 'sgd'], ...)  Don't let the discriminator saturate!  Adapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as  gandlf.callbacks.AdaptiveLearningRate", 
             "title": "Training"
         }, 
         {
@@ -124,6 +124,16 @@
             "location": "/layers/wrappers/#residual", 
             "text": "gandlf.layers.Residual(layer, merge_mode='sum')  Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.  The provided  layer  has the have the same input and output dimensions. Given an input  x , the output is:  output = merge_mode(x, layer(x))  merge_mode  can be a string like for  Merge  or a  Merge  layer itself.", 
             "title": "Residual"
+        }, 
+        {
+            "location": "/callbacks/", 
+            "text": "AdaptiveLearningRate\n\n\ngandlf.callbacks.AdaptiveLearningRate(discriminator_lr, generator_lr)\n\n\n\n\nAdapts the learning rate on each batch according to the model's loss, where \ndiscriminator_lr\n and \ngenerator_lr\n are the maximum learning rates for the discriminator and generator models.\n\n\nOn each batch, the learning rate for the generator and discriminator are adapted according to the losses of each:\n\n\nbatch_dis_lr = discriminator_lr * (discriminator_loss / total_loss)\nbatch_gen_lr = generator_lr * (generator_loss / total_loss)", 
+            "title": "Callbacks"
+        }, 
+        {
+            "location": "/callbacks/#adaptivelearningrate", 
+            "text": "gandlf.callbacks.AdaptiveLearningRate(discriminator_lr, generator_lr)  Adapts the learning rate on each batch according to the model's loss, where  discriminator_lr  and  generator_lr  are the maximum learning rates for the discriminator and generator models.  On each batch, the learning rate for the generator and discriminator are adapted according to the losses of each:  batch_dis_lr = discriminator_lr * (discriminator_loss / total_loss)\nbatch_gen_lr = generator_lr * (generator_loss / total_loss)", 
+            "title": "AdaptiveLearningRate"
         }, 
         {
             "location": "/examples/xor/", 

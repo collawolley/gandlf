@@ -120,6 +120,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../callbacks/">Callbacks</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>Examples</span></li>
 
@@ -177,6 +184,7 @@
 <li>This data can then be approximated using the <code>tanh</code> function</li>
 </ul>
 </li>
+<li>Use Batch Normalization (implemented in Keras as <a href="https://keras.io/layers/normalization/#batchnormalization">BatchNormalization</a>)</li>
 </ul>
 <h2 id="model">Model</h2>
 <ul>
@@ -191,6 +199,7 @@
 <li>Reinforcement learning stability tricks: Not yet implemented</li>
 <li>Use the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as <code>model = gandlf.Model(optimizer=['adam', 'sgd'], ...)</code></li>
 <li>Don't let the discriminator saturate!</li>
+<li>Adapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as <code>gandlf.callbacks.AdaptiveLearningRate</code></li>
 </ul>
               
             </div>
