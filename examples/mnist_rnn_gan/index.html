@@ -8,7 +8,7 @@
   
   <meta name="author" content="Benjamin Bolte">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>VGG16 - gandlf</title>
+  <title>MNIST RNN GAN - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "VGG16";
-    var mkdocs_page_input_path = "examples/vgg16.md";
-    var mkdocs_page_url = "/examples/vgg16/";
+    var mkdocs_page_name = "MNIST RNN GAN";
+    var mkdocs_page_input_path = "examples/mnist_rnn_gan.md";
+    var mkdocs_page_url = "/examples/mnist_rnn_gan/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -130,19 +130,19 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../mnist_rnn_gan/">MNIST RNN GAN</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">MNIST RNN GAN</a>
+        
+            <ul>
+            
+            </ul>
         
     </li>
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">VGG16</a>
-        
-            <ul>
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../vgg16/">VGG16</a>
         
     </li>
 
@@ -176,10 +176,10 @@
         
       
     
-    <li>VGG16</li>
+    <li>MNIST RNN GAN</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/vgg16.md"
+        <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/mnist_rnn_gan.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -189,9 +189,12 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/vgg16.py">vgg16.py</a></p>
-<p>This example illustrates how a pre-trained model can be used to generate images. The discriminator is the VGG16 model which is available with Keras, and the discriminator weights are frozen. The generator learns to generate samples of a desired class. This isn't a pure GAN, because the discriminator model doesn't learn to discriminate adversarial examples, but the generator does learn to map a random normal distribution to generate image classes in the ImageNet dataset.</p>
-<p>TODO: Add images sampled from this model (it is really big and takes a while to train, so they will be added whenever I have access to a good enough computer).</p>
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/mnist_rnn_gan.py">mnist_rnn_gan.py</a></p>
+<p>This example illustrates:</p>
+<ul>
+<li>Using RNNs in your GAN architecture</li>
+<li>Using attention components to direct GAN learning (with the recurrent attention wrappers, <code>gandlf.layers.RecurrentAttention1D</code> and <code>gandlf.layers.RecurrentAttention2D</code>)</li>
+</ul>
               
             </div>
           </div>
@@ -199,8 +202,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../vgg16/" class="btn btn-neutral float-right" title="VGG16">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../mnist_rnn_gan/" class="btn btn-neutral" title="MNIST RNN GAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../mnist_gan/" class="btn btn-neutral" title="MNIST GAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -228,8 +233,10 @@
           <a href="https://github.com/codekansas/gandlf" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../mnist_rnn_gan/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../mnist_gan/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../vgg16/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

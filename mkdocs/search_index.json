@@ -146,6 +146,11 @@
             "title": "MNIST GAN"
         }, 
         {
+            "location": "/examples/mnist_rnn_gan/", 
+            "text": "mnist_rnn_gan.py\n\n\nThis example illustrates:\n\n\n\n\nUsing RNNs in your GAN architecture\n\n\nUsing attention components to direct GAN learning (with the recurrent attention wrappers, \ngandlf.layers.RecurrentAttention1D\n and \ngandlf.layers.RecurrentAttention2D\n)", 
+            "title": "MNIST RNN GAN"
+        }, 
+        {
             "location": "/examples/vgg16/", 
             "text": "vgg16.py\n\n\nThis example illustrates how a pre-trained model can be used to generate images. The discriminator is the VGG16 model which is available with Keras, and the discriminator weights are frozen. The generator learns to generate samples of a desired class. This isn't a pure GAN, because the discriminator model doesn't learn to discriminate adversarial examples, but the generator does learn to map a random normal distribution to generate image classes in the ImageNet dataset.\n\n\nTODO: Add images sampled from this model (it is really big and takes a while to train, so they will be added whenever I have access to a good enough computer).", 
             "title": "VGG16"
