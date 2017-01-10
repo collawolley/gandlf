@@ -67,7 +67,7 @@
         }, 
         {
             "location": "/tricks/", 
-            "text": "General\n\n\nA list of useful GAN hacks is available \nhere\n. Most of the tricks listed below are taken from that list, with references for how to implement them in Gandlf.\n\n\nData\n\n\n\n\nNormalize the data to \n[-1, 1]\n\n\nThis data can then be approximated using the \ntanh\n function\n\n\n\n\n\n\nUse Batch Normalization (implemented in Keras as \nBatchNormalization\n)\n\n\n\n\nModel\n\n\n\n\nUse \nkeras.layers.LeakyReLU\n instead of the ReLU activation function\n\n\nIf available, use labeled data (Auxiliary Classifier GAN or Conditional GAN)\n\n\nUse dropout in both the train and test phase: This is implemented as \ngandlf.layers.PermanentDropout\n\n\n\n\nTraining\n\n\n\n\nModified loss function: Instead of training the Generator to minimize \nlog(1-D)\n, train it to minimize \n-log(D)\n. This is implemented as \ngandlf.losses.negative_binary_crossentropy\n\n\nFor the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as \nmodel.fit(inputs=['normal', ...)\n\n\nReinforcement learning stability tricks: Not yet implemented\n\n\nUse the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as \nmodel = gandlf.Model(optimizer=['adam', 'sgd'], ...)\n\n\nDon't let the discriminator saturate!\n\n\nAdapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as \ngandlf.callbacks.AdaptiveLearningRate", 
+            "text": "General\n\n\nA list of useful GAN hacks is available \nhere\n. Most of the tricks listed below are taken from that list, with references for how to implement them in Gandlf.\n\n\nData\n\n\n\n\nNormalize the data to \n[-1, 1]\n\n\nThis data can then be approximated using the \ntanh\n function\n\n\n\n\n\n\nUse Batch Normalization (implemented in Keras as \nBatchNormalization\n)\n\n\n\n\nModel\n\n\n\n\nUse \nkeras.layers.LeakyReLU\n instead of the ReLU activation function\n\n\nIf available, use labeled data (Auxiliary Classifier GAN or Conditional GAN). These can be integrated as inputs and outputs or as \nattention\n components.\n\n\nUse dropout in both the train and test phase: This is implemented as \ngandlf.layers.PermanentDropout\n\n\nUse minibatch discrimination: Compare the intrabatch similarities and add add it as a feature for the discriminator. This helps the model avoid generating only type of output. This is implemented as \ngandlf.layers.BatchSimilarity\n.\n\n\n\n\nTraining\n\n\n\n\nModified loss function: Instead of training the Generator to minimize \nlog(1-D)\n, train it to minimize \n-log(D)\n. This is implemented as \ngandlf.losses.negative_binary_crossentropy\n\n\nFor the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as \nmodel.fit(inputs=['normal', ...)\n\n\nReinforcement learning stability tricks: Not yet implemented\n\n\nUse the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as \nmodel = gandlf.Model(optimizer=['adam', 'sgd'], ...)\n\n\nDon't let the discriminator saturate!\n\n\nAdapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as \ngandlf.callbacks.AdaptiveLearningRate", 
             "title": "Tricks"
         }, 
         {
@@ -82,7 +82,7 @@
         }, 
         {
             "location": "/tricks/#model", 
-            "text": "Use  keras.layers.LeakyReLU  instead of the ReLU activation function  If available, use labeled data (Auxiliary Classifier GAN or Conditional GAN)  Use dropout in both the train and test phase: This is implemented as  gandlf.layers.PermanentDropout", 
+            "text": "Use  keras.layers.LeakyReLU  instead of the ReLU activation function  If available, use labeled data (Auxiliary Classifier GAN or Conditional GAN). These can be integrated as inputs and outputs or as  attention  components.  Use dropout in both the train and test phase: This is implemented as  gandlf.layers.PermanentDropout  Use minibatch discrimination: Compare the intrabatch similarities and add add it as a feature for the discriminator. This helps the model avoid generating only type of output. This is implemented as  gandlf.layers.BatchSimilarity .", 
             "title": "Model"
         }, 
         {
@@ -92,13 +92,18 @@
         }, 
         {
             "location": "/layers/core/", 
-            "text": "core.py\n\n\nCore layers, tricks which can help easily improve GANs in many cases.\n\n\nPermanentDropout\n\n\ngandlf.layers.PermanentDropout()\n\n\n\n\nAn alternative to Keras \nDropout\n which stays active during both training and testing.", 
+            "text": "core.py\n\n\nCore layers, tricks which can help easily improve GANs in many cases.\n\n\nPermanentDropout\n\n\ngandlf.layers.PermanentDropout()\n\n\n\n\nAn alternative to Keras \nDropout\n which stays active during both training and testing.\n\n\nBatchSimilarity\n\n\ngandlf.layers.BatchSimilarity(similarity='exp_l1')\n\n\n\n\nCalculates the minibatch similarities, a trick introduced in \nImproved Techniques for Training GANs\n. These similarities can be added as features for the existing layer by using a Merge layer. The layer outputs a Tensor with shape \n(batch_size, num_similarities)\n for 2D tensors, \n(batch_size, None, num_similarities)\n for 3D Tensors, and so on.\n\n\nIn order to make this layer linear time with respect to the batch size, instead of doing a pairwise comparison between each pair of samples in the batch, for each sample a random sample is uniformly selected with which to do pairwise comparison.\n\n\nThe \nsimilarity\n argument can be one of:\n\n\n\n\nexp_l1\n: \nexp(sum(abs(a - b)))\n\n\nexp_l2\n or \nrbf\n: \nexp(sum(square(a - b)))\n\n\nl1\n: \nsum(abs(a - b))\n\n\nl2\n: \nsum(square(a - b))\n\n\ncosine\n: \ndot(a, b) / (|| a || * || b ||)\n\n\nsigmoid\n: \nsigmoid(dot(a, b))\n\n\neuclidean\n: \n1 / (1 + sum(square(a - b)))\n\n\ngeometric\n: \nsigmoid(a, b) * euclidean(a, b)\n\n\narithmetic\n: \n(sigmoid(a, b) + euclidean(a, b)) / 2\n\n\n\n\nAlternatively, a function can be provided which take two tensors and returns their similarity. Multiple similarity arguments can be provided as a list or tuple. \n\n\nThe following example illustrates how to merge the similarity features with the layer output:\n\n\nsims = gandlf.layers.BatchSimilarity(['sim1', 'sim2', etc.])(input_layer)\noutput_layer = keras.layers.merge([input_layer, sims], mode='concat')", 
             "title": "Core"
         }, 
         {
             "location": "/layers/core/#permanentdropout", 
             "text": "gandlf.layers.PermanentDropout()  An alternative to Keras  Dropout  which stays active during both training and testing.", 
             "title": "PermanentDropout"
+        }, 
+        {
+            "location": "/layers/core/#batchsimilarity", 
+            "text": "gandlf.layers.BatchSimilarity(similarity='exp_l1')  Calculates the minibatch similarities, a trick introduced in  Improved Techniques for Training GANs . These similarities can be added as features for the existing layer by using a Merge layer. The layer outputs a Tensor with shape  (batch_size, num_similarities)  for 2D tensors,  (batch_size, None, num_similarities)  for 3D Tensors, and so on.  In order to make this layer linear time with respect to the batch size, instead of doing a pairwise comparison between each pair of samples in the batch, for each sample a random sample is uniformly selected with which to do pairwise comparison.  The  similarity  argument can be one of:   exp_l1 :  exp(sum(abs(a - b)))  exp_l2  or  rbf :  exp(sum(square(a - b)))  l1 :  sum(abs(a - b))  l2 :  sum(square(a - b))  cosine :  dot(a, b) / (|| a || * || b ||)  sigmoid :  sigmoid(dot(a, b))  euclidean :  1 / (1 + sum(square(a - b)))  geometric :  sigmoid(a, b) * euclidean(a, b)  arithmetic :  (sigmoid(a, b) + euclidean(a, b)) / 2   Alternatively, a function can be provided which take two tensors and returns their similarity. Multiple similarity arguments can be provided as a list or tuple.   The following example illustrates how to merge the similarity features with the layer output:  sims = gandlf.layers.BatchSimilarity(['sim1', 'sim2', etc.])(input_layer)\noutput_layer = keras.layers.merge([input_layer, sims], mode='concat')", 
+            "title": "BatchSimilarity"
         }, 
         {
             "location": "/layers/attention/", 
@@ -134,6 +139,26 @@
             "location": "/callbacks/#adaptivelearningrate", 
             "text": "gandlf.callbacks.AdaptiveLearningRate(discriminator_lr, generator_lr)  Adapts the learning rate on each batch according to the model's loss, where  discriminator_lr  and  generator_lr  are the maximum learning rates for the discriminator and generator models.  On each batch, the learning rate for the generator and discriminator are adapted according to the losses of each:  batch_dis_lr = discriminator_lr * (discriminator_loss / total_loss)\nbatch_gen_lr = generator_lr * (generator_loss / total_loss)", 
             "title": "AdaptiveLearningRate"
+        }, 
+        {
+            "location": "/losses/", 
+            "text": "losses.py\n\n\nNegative Binary Crossentropy\n\n\nInstead of minimizing \nlog(1-D)\n maximize \nlog(D)\n.\n\n\nNote that when using this loss function, you should not change the target. For example, if you want \nG -\n 0\n and \nD -\n 1\n to train your generator, you should replace your \nbinary_crossentropy\n for the fake output with \nnegative_binary_crossentropy\n while keeping the target output as 0.\n\n\nMaximize\n\n\nMaximizes \ny_true\n, regardless of \ny_pred\n.\n\n\nMinimize\n\n\nMinimizes \ny_true\n, regardless of \ny_pred\n.", 
+            "title": "Losses"
+        }, 
+        {
+            "location": "/losses/#negative-binary-crossentropy", 
+            "text": "Instead of minimizing  log(1-D)  maximize  log(D) .  Note that when using this loss function, you should not change the target. For example, if you want  G -  0  and  D -  1  to train your generator, you should replace your  binary_crossentropy  for the fake output with  negative_binary_crossentropy  while keeping the target output as 0.", 
+            "title": "Negative Binary Crossentropy"
+        }, 
+        {
+            "location": "/losses/#maximize", 
+            "text": "Maximizes  y_true , regardless of  y_pred .", 
+            "title": "Maximize"
+        }, 
+        {
+            "location": "/losses/#minimize", 
+            "text": "Minimizes  y_true , regardless of  y_pred .", 
+            "title": "Minimize"
         }, 
         {
             "location": "/examples/xor/", 

@@ -127,6 +127,13 @@
 <li>
           
             <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../losses/">Losses</a>
+        
+    </li>
+<li>
+          
+            <li>
     <ul class="subnav">
     <li><span>Examples</span></li>
 
@@ -210,17 +217,18 @@
 <h2 id="model">Model</h2>
 <ul>
 <li>Use <code>keras.layers.LeakyReLU</code> instead of the ReLU activation function</li>
-<li>If available, use labeled data (Auxiliary Classifier GAN or Conditional GAN)</li>
-<li>Use dropout in both the train and test phase: This is implemented as <code>gandlf.layers.PermanentDropout</code></li>
+<li>If available, use labeled data (Auxiliary Classifier GAN or Conditional GAN). These can be integrated as inputs and outputs or as <a href="../layers/attention/">attention</a> components.</li>
+<li>Use dropout in both the train and test phase: This is implemented as <a href="../layers/core/#permanentdropout"><code>gandlf.layers.PermanentDropout</code></a></li>
+<li>Use minibatch discrimination: Compare the intrabatch similarities and add add it as a feature for the discriminator. This helps the model avoid generating only type of output. This is implemented as <a href="../layers/core/#batchsimilarity"><code>gandlf.layers.BatchSimilarity</code></a>.</li>
 </ul>
 <h2 id="training">Training</h2>
 <ul>
-<li>Modified loss function: Instead of training the Generator to minimize <code>log(1-D)</code>, train it to minimize <code>-log(D)</code>. This is implemented as <code>gandlf.losses.negative_binary_crossentropy</code></li>
+<li>Modified loss function: Instead of training the Generator to minimize <code>log(1-D)</code>, train it to minimize <code>-log(D)</code>. This is implemented as <a href="../losses/#negative-binary-crossentropy"><code>gandlf.losses.negative_binary_crossentropy</code></a></li>
 <li>For the latent vector(s), sample from a normal distribution instead of a uniform distribution. This is implemented as <code>model.fit(inputs=['normal', ...)</code></li>
 <li>Reinforcement learning stability tricks: Not yet implemented</li>
 <li>Use the Adam optimizer for the discriminator, and the SGD optimizer for the generator. This can be done as <code>model = gandlf.Model(optimizer=['adam', 'sgd'], ...)</code></li>
 <li>Don't let the discriminator saturate!</li>
-<li>Adapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as <code>gandlf.callbacks.AdaptiveLearningRate</code></li>
+<li>Adapt the generator and discriminator updates so that when the generator loss is high relative to the discriminator, its learning rate is also higher. This is implemented as <a href="../callbacks/#adaptivelearningrate"><code>gandlf.callbacks.AdaptiveLearningRate</code></a></li>
 </ul>
               
             </div>

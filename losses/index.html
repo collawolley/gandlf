@@ -7,24 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Benjamin Bolte">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>XOR - gandlf</title>
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Losses - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "XOR";
-    var mkdocs_page_input_path = "examples/xor.md";
-    var mkdocs_page_url = "/examples/xor/";
+    var mkdocs_page_name = "Losses";
+    var mkdocs_page_input_path = "losses.md";
+    var mkdocs_page_url = "/losses/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -35,9 +35,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> gandlf</a>
+        <a href=".." class="icon icon-home"> gandlf</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -48,28 +48,28 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
+        <a class="" href="..">Home</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../background/">Background</a>
+        <a class="" href="../background/">Background</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../model/">Model</a>
+        <a class="" href="../model/">Model</a>
         
     </li>
 <li>
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../tricks/">Tricks</a>
+        <a class="" href="../tricks/">Tricks</a>
         
     </li>
 <li>
@@ -81,21 +81,21 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../layers/core/">Core</a>
+        <a class="" href="../layers/core/">Core</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../layers/attention/">Attention</a>
+        <a class="" href="../layers/attention/">Attention</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../layers/wrappers/">Wrappers</a>
+        <a class="" href="../layers/wrappers/">Wrappers</a>
         
     </li>
 
@@ -105,14 +105,27 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../callbacks/">Callbacks</a>
+        <a class="" href="../callbacks/">Callbacks</a>
         
     </li>
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../losses/">Losses</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Losses</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#negative-binary-crossentropy">Negative Binary Crossentropy</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#maximize">Maximize</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#minimize">Minimize</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -123,33 +136,29 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">XOR</a>
-        
-            <ul>
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/xor/">XOR</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_gan/">MNIST GAN</a>
+        <a class="" href="../examples/mnist_gan/">MNIST GAN</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_rnn_gan/">MNIST RNN GAN</a>
+        <a class="" href="../examples/mnist_rnn_gan/">MNIST RNN GAN</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../vgg16/">VGG16</a>
+        <a class="" href="../examples/vgg16/">VGG16</a>
         
     </li>
 
@@ -167,7 +176,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">gandlf</a>
+        <a href="..">gandlf</a>
       </nav>
 
       
@@ -175,18 +184,14 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Examples &raquo;</li>
-        
-      
     
-    <li>XOR</li>
+    <li>Losses</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/xor.md"
+        <a href="https://github.com/codekansas/gandlf/edit/master/docs/losses.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -196,11 +201,14 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/xor.py">xor.py</a></p>
-<p>This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near <code>(-1, -1)</code>, <code>(1, -1)</code>, <code>(-1, 1)</code> and <code>(1, 1)</code>. This is illustrated in the figure below, which each of the distributions labeled.</p>
-<p><img alt="XOR Data" src="../../resources/xor_data.png" /></p>
-<p>The model can either be trained in unsupervised mode or supervised mode. In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.</p>
-<p>When trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.</p>
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/gandlf/losses.py">losses.py</a></p>
+<h2 id="negative-binary-crossentropy">Negative Binary Crossentropy</h2>
+<p>Instead of minimizing <code>log(1-D)</code> maximize <code>log(D)</code>.</p>
+<p>Note that when using this loss function, you should not change the target. For example, if you want <code>G -&gt; 0</code> and <code>D -&gt; 1</code> to train your generator, you should replace your <code>binary_crossentropy</code> for the fake output with <code>negative_binary_crossentropy</code> while keeping the target output as 0.</p>
+<h2 id="maximize">Maximize</h2>
+<p>Maximizes <code>y_true</code>, regardless of <code>y_pred</code>.</p>
+<h2 id="minimize">Minimize</h2>
+<p>Minimizes <code>y_true</code>, regardless of <code>y_pred</code>.</p>
               
             </div>
           </div>
@@ -208,10 +216,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mnist_gan/" class="btn btn-neutral float-right" title="MNIST GAN">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../examples/xor/" class="btn btn-neutral float-right" title="XOR">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../losses/" class="btn btn-neutral" title="Losses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../callbacks/" class="btn btn-neutral" title="Callbacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -239,14 +247,14 @@
           <a href="https://github.com/codekansas/gandlf" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../losses/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../callbacks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mnist_gan/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../examples/xor/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script src="../../js/theme.js"></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
