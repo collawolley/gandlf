@@ -213,7 +213,7 @@
 <pre><code class="python">gandlf.layers.BatchSimilarity(similarity='exp_l1')
 </code></pre>
 
-<p>Calculates the minibatch similarities, a trick introduced in <a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a>. These similarities can be added as features for the existing layer by using a Merge layer. The layer outputs a Tensor with shape <code>(batch_size, num_similarities)</code> for 2D tensors, <code>(batch_size, None, num_similarities)</code> for 3D Tensors, and so on.</p>
+<p>Calculates the minibatch similarities, a trick introduced in <a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a>. These similarities can be added as features for the existing layer by using a Merge layer. The layer takes as input a 2D Tensor with shape <code>(batch_size, num_features)</code> and outputs a Tensor with shape <code>(batch_size, num_similarities)</code>, where <code>num_similarities</code> is the total number of computed similarities.</p>
 <p>In order to make this layer linear time with respect to the batch size, instead of doing a pairwise comparison between each pair of samples in the batch, for each sample a random sample is uniformly selected with which to do pairwise comparison.</p>
 <p>The <code>similarity</code> argument can be one of:</p>
 <ul>
@@ -227,6 +227,7 @@
 <li><code>geometric</code>: <code>sigmoid(a, b) * euclidean(a, b)</code></li>
 <li><code>arithmetic</code>: <code>(sigmoid(a, b) + euclidean(a, b)) / 2</code></li>
 </ul>
+<p>These implementations can be found in <a href="https://github.com/codekansas/gandlf/blob/master/gandlf/similarities.py"><code>similarities.py</code></a>.</p>
 <p>Alternatively, a function can be provided which take two tensors and returns their similarity. Multiple similarity arguments can be provided as a list or tuple. </p>
 <p>The following example illustrates how to merge the similarity features with the layer output:</p>
 <pre><code class="python">sims = gandlf.layers.BatchSimilarity(['sim1', 'sim2', etc.])(input_layer)

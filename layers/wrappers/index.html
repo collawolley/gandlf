@@ -205,7 +205,7 @@
 </code></pre>
 
 <p>Applies a residual to any Keras layer or model, so long as it's inputs are the same dimension as its outputs. Useful for implementing residual architectures.</p>
-<p>The provided <code>layer</code> has the have the same input and output dimensions. Given an input <code>x</code>, the output is:</p>
+<p>The provided <code>layer</code> has to have the same input and output dimensions. Given an input <code>x</code>, the output is:</p>
 <pre><code class="python">output = merge_mode(x, layer(x))
 </code></pre>
 
