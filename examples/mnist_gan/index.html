@@ -200,8 +200,8 @@
 <p>This example illustrates how to use a Gandlf model to generate MNIST digits. The model can be run in supervised mode (where the discriminator and generator know the desired class labels) or unsupervised mode (which is a more pure GAN implementation).</p>
 <p>This example is a Gandlf implementation of the Keras MNIST ACGAN example, which can be found <a href="https://github.com/fchollet/keras/blob/master/examples/mnist_acgan.py">here</a>. One important distinction is that Gandlf runs the generator and discriminator updates in parallel rather than sequentially; this can't be done in Keras normally.</p>
 <p>TODO: Add images sampled from this model.</p>
-<p>In addition to the convolutional model, a simple feed-forward model can be used for the discriminator and generator which can be trained much more quickly (feasible to run it on a laptop). Some samples from this model can be seen below:</p>
-<p>TODO: Add images sampled from this model.</p>
+<p>In addition to the convolutional model, a simple feed-forward model can be used for the discriminator and generator which can be trained much more quickly (feasible to run it on a laptop). The samples below show randomly sampled generated images from the lite model after a single epoch, which took about 100 seconds on a Macbook Pro.</p>
+<p><img alt="MNIST GAN Lite" src="../../resources/mnist_gan_lite.png" /></p>
               
             </div>
           </div>
