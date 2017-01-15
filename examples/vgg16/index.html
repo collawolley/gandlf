@@ -8,7 +8,7 @@
   
   <meta name="author" content="Benjamin Bolte">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>VGG16 - gandlf</title>
+  <title>Generating through VGG16 - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "VGG16";
+    var mkdocs_page_name = "Generating through VGG16";
     var mkdocs_page_input_path = "examples/vgg16.md";
     var mkdocs_page_url = "/examples/vgg16/";
   </script>
@@ -124,28 +124,43 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../xor/">XOR</a>
+        <a class="" href="../xor/">Hello, world!</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>MNIST</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mnist/mnist_gan/">MNIST GAN</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_gan/">MNIST GAN</a>
+        <a class="" href="../mnist/mnist_upsample/">Upsampling MNIST Digits</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_rnn_gan/">MNIST RNN GAN</a>
+        <a class="" href="../mnist/mnist_rnn/">RNNs in GANs</a>
         
     </li>
+
+        
+    </ul>
 
         
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">VGG16</a>
+        <a class="current" href="./">Generating through VGG16</a>
         
             <ul>
             
@@ -183,7 +198,7 @@
         
       
     
-    <li>VGG16</li>
+    <li>Generating through VGG16</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/vgg16.md"
@@ -196,9 +211,9 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/vgg16.py">vgg16.py</a></p>
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/vgg16.py" class="icon icon-github"> vgg16.py</a></p>
 <p>This example illustrates how a pre-trained model can be used to generate images. The discriminator is the VGG16 model which is available with Keras, and the discriminator weights are frozen. The generator learns to generate samples of a desired class. This isn't a pure GAN, because the discriminator model doesn't learn to discriminate adversarial examples, but the generator does learn to map a random normal distribution to generate image classes in the ImageNet dataset.</p>
-<p>TODO: Add images sampled from this model (it is really big and takes a while to train, so they will be added whenever I have access to a good enough computer).</p>
+<p>The trained samples are a work in progress (waiting on access to a GPU). If you run it and get interesting results, send them my way! Otherwise, hopefully I'll have these updated in a month or so.</p>
               
             </div>
           </div>
@@ -207,7 +222,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../mnist_rnn_gan/" class="btn btn-neutral" title="MNIST RNN GAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mnist/mnist_rnn/" class="btn btn-neutral" title="RNNs in GANs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -235,7 +250,7 @@
           <a href="https://github.com/codekansas/gandlf" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../mnist_rnn_gan/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../mnist/mnist_rnn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

@@ -8,7 +8,7 @@
   
   <meta name="author" content="Benjamin Bolte">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>XOR - gandlf</title>
+  <title>Hello, world! - gandlf</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,7 +17,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "XOR";
+    var mkdocs_page_name = "Hello, world!";
     var mkdocs_page_input_path = "examples/xor.md";
     var mkdocs_page_url = "/examples/xor/";
   </script>
@@ -124,7 +124,7 @@
         
             
     <li class="toctree-l1 current">
-        <a class="current" href="./">XOR</a>
+        <a class="current" href="./">Hello, world!</a>
         
             <ul>
             
@@ -134,22 +134,37 @@
 
         
             
+    <ul class="subnav">
+    <li><span>MNIST</span></li>
+
+        
+            
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_gan/">MNIST GAN</a>
+        <a class="" href="../mnist/mnist_gan/">MNIST GAN</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../mnist_rnn_gan/">MNIST RNN GAN</a>
+        <a class="" href="../mnist/mnist_upsample/">Upsampling MNIST Digits</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../vgg16/">VGG16</a>
+        <a class="" href="../mnist/mnist_rnn/">RNNs in GANs</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../vgg16/">Generating through VGG16</a>
         
     </li>
 
@@ -183,7 +198,7 @@
         
       
     
-    <li>XOR</li>
+    <li>Hello, world!</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/codekansas/gandlf/edit/master/docs/examples/xor.md"
@@ -196,8 +211,8 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/xor.py">xor.py</a></p>
-<p>This example can be run quickly on a CPU, and is a good demonstration of one of the tricky parts about training GANs. The input data consists of four uniform distributions, centered near <code>(-1, -1)</code>, <code>(1, -1)</code>, <code>(-1, 1)</code> and <code>(1, 1)</code>. This is illustrated in the figure below, which each of the distributions labeled.</p>
+                <p><a href="https://github.com/codekansas/gandlf/blob/master/examples/xor.py" class="icon icon-github"> xor.py</a></p>
+<p>This is a basic example which illustrates the typical "Hello, world!" for neural networks. The input data consists of four uniform distributions, centered near <code>(-1, -1)</code>, <code>(1, -1)</code>, <code>(-1, 1)</code> and <code>(1, 1)</code> (illustrated below).</p>
 <p><img alt="XOR Data" src="../../resources/xor_data.png" /></p>
 <p>The model can either be trained in unsupervised mode or supervised mode. In the supervised mode, it acts as an auxiliary classifier GAN, which explicitly says which distribution the generated data should come from.</p>
 <p>When trained in the unsupervised mode, the data tends to cluster in one of the distributions. A potential way to fix this would be to let the GAN look at a whole batch of data, which would let it know that it's clustering too much on one distribution.</p>
@@ -208,7 +223,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mnist_gan/" class="btn btn-neutral float-right" title="MNIST GAN">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../mnist/mnist_gan/" class="btn btn-neutral float-right" title="MNIST GAN">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../losses/" class="btn btn-neutral" title="Losses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -242,7 +257,7 @@
         <span><a href="../../losses/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mnist_gan/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../mnist/mnist_gan/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
