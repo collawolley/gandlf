@@ -3,70 +3,32 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>/background/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/background/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>/model/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/model/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
     <url>
-     <loc>/tricks/</loc>
-     <lastmod>2017-01-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-        
-    <url>
-     <loc>/layers/core/</loc>
-     <lastmod>2017-01-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/layers/attention/</loc>
-     <lastmod>2017-01-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/layers/wrappers/</loc>
-     <lastmod>2017-01-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-    <url>
-     <loc>/callbacks/</loc>
-     <lastmod>2017-01-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/losses/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/tricks/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -74,32 +36,70 @@
     
         
     <url>
-     <loc>/examples/xor/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/layers/core/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/mnist/mnist_gan/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/layers/attention/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/mnist/mnist_upsample/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/layers/wrappers/</loc>
+     <lastmod>2017-01-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>None/callbacks/</loc>
+     <lastmod>2017-01-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/losses/</loc>
+     <lastmod>2017-01-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/examples/xor/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/mnist/mnist_rnn/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/examples/mnist/mnist_gan/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/examples/vgg16/</loc>
-     <lastmod>2017-01-15</lastmod>
+     <loc>None/examples/mnist/mnist_upsample/</loc>
+     <lastmod>2017-01-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/examples/mnist/mnist_rnn/</loc>
+     <lastmod>2017-01-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/examples/vgg16/</loc>
+     <lastmod>2017-01-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
